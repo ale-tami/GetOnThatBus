@@ -3,12 +3,23 @@
    version = "1.0">
    <ContextStates>
       <ContextState
+         contextName = "-[ViewController prepareForSegue:sender:]:ViewController.m">
+         <PersistentStrings>
+            <PersistentString
+               value = "annotationView.annotation.jsonAttribute">
+            </PersistentString>
+         </PersistentStrings>
+      </ContextState>
+      <ContextState
          contextName = "-[ViewController responseWithJSON:]:ViewController.m">
          <PersistentStrings>
             <PersistentString
                value = "[chicagoLocation distanceFromLocation:jsonLocation]">
             </PersistentString>
          </PersistentStrings>
+      </ContextState>
+      <ContextState
+         contextName = "__29-[ViewController viewDidLoad]_block_invoke:ViewController.m">
       </ContextState>
    </ContextStates>
 </VariablesViewState>

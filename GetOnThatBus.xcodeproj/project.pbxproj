@@ -24,6 +24,8 @@
 		4DA8E3F1199159C300233780 /* JSONManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 4DA8E3F0199159C300233780 /* JSONManager.m */; };
 		4DA8E3F319915B5800233780 /* MapKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4DA8E3F219915B5800233780 /* MapKit.framework */; };
 		4DA8E3F5199161B800233780 /* CheckMate.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4DA8E3F4199161B800233780 /* CheckMate.framework */; };
+		4DA8E3F819919E5800233780 /* MKAnnotationView+JSONProperty.m in Sources */ = {isa = PBXBuildFile; fileRef = 4DA8E3F719919E5800233780 /* MKAnnotationView+JSONProperty.m */; };
+		4DA8E3FB1991A11600233780 /* DetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4DA8E3FA1991A11600233780 /* DetailViewController.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -60,6 +62,10 @@
 		4DA8E3F0199159C300233780 /* JSONManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JSONManager.m; sourceTree = "<group>"; };
 		4DA8E3F219915B5800233780 /* MapKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MapKit.framework; path = System/Library/Frameworks/MapKit.framework; sourceTree = SDKROOT; };
 		4DA8E3F4199161B800233780 /* CheckMate.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = CheckMate.framework; sourceTree = "<group>"; };
+		4DA8E3F619919E5700233780 /* MKAnnotationView+JSONProperty.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "MKAnnotationView+JSONProperty.h"; sourceTree = "<group>"; };
+		4DA8E3F719919E5800233780 /* MKAnnotationView+JSONProperty.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "MKAnnotationView+JSONProperty.m"; sourceTree = "<group>"; };
+		4DA8E3F91991A11600233780 /* DetailViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DetailViewController.h; sourceTree = "<group>"; };
+		4DA8E3FA1991A11600233780 /* DetailViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DetailViewController.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -128,8 +134,12 @@
 				4DA8E3CA1991570A00233780 /* Main.storyboard */,
 				4DA8E3CD1991570A00233780 /* ViewController.h */,
 				4DA8E3CE1991570A00233780 /* ViewController.m */,
+				4DA8E3F91991A11600233780 /* DetailViewController.h */,
+				4DA8E3FA1991A11600233780 /* DetailViewController.m */,
 				4DA8E3EF199159C300233780 /* JSONManager.h */,
 				4DA8E3F0199159C300233780 /* JSONManager.m */,
+				4DA8E3F619919E5700233780 /* MKAnnotationView+JSONProperty.h */,
+				4DA8E3F719919E5800233780 /* MKAnnotationView+JSONProperty.m */,
 				4DA8E3D01991570A00233780 /* Images.xcassets */,
 				4DA8E3BF1991570A00233780 /* Supporting Files */,
 			);
@@ -264,8 +274,10 @@
 			files = (
 				4DA8E3CF1991570A00233780 /* ViewController.m in Sources */,
 				4DA8E3F1199159C300233780 /* JSONManager.m in Sources */,
+				4DA8E3F819919E5800233780 /* MKAnnotationView+JSONProperty.m in Sources */,
 				4DA8E3C91991570A00233780 /* AppDelegate.m in Sources */,
 				4DA8E3C51991570A00233780 /* main.m in Sources */,
+				4DA8E3FB1991A11600233780 /* DetailViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
