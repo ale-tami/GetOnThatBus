@@ -11,6 +11,7 @@
 #import <objc/runtime.h>
 
 static void * JSONPropertyKey = &JSONPropertyKey;
+static void * UIImagePropertyKey = &UIImagePropertyKey;
 
 @implementation MKPointAnnotation (JSONProperty)
 
@@ -23,7 +24,23 @@ static void * JSONPropertyKey = &JSONPropertyKey;
     objc_setAssociatedObject(self, JSONPropertyKey, jsonAttribute, OBJC_ASSOCIATION_RETAIN_NONATOMIC);
 }
 
+- (UIImage *)image {
+    return objc_getAssociatedObject(self, UIImagePropertyKey);
+}
 
+- (void)setImage:(UIImage *)img {
+    objc_setAssociatedObject(self, UIImagePropertyKey, img, OBJC_ASSOCIATION_RETAIN_NONATOMIC);
+}
 
+- (void) pinBasedOnTransfer:(NSDictionary*)transfer
+{
+
+    if ([[transfer objectForKey:@"inter_modal"] isEqualToString:@"Pace"]) {
+        self.image = [UIImage imageNamed:@"pace"];
+    } else if ([[transfer objectForKey:@"inter_modal"] isEqualToString:@"Metra"]) {
+        self.image = [UIImage imageNamed:@"metra"];
+    }
+
+}
 
 @end

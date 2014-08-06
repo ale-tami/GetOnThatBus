@@ -11,5 +11,8 @@
 @interface MKPointAnnotation (JSONProperty)
 
 @property NSDictionary *jsonAttribute;
+@property UIImage* image;
+
+- (void) pinBasedOnTransfer:(NSDictionary*)transfer;
 
 @end

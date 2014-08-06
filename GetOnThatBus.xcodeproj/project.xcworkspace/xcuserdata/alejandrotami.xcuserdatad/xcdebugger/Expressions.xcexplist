@@ -3,6 +3,14 @@
    version = "1.0">
    <ContextStates>
       <ContextState
+         contextName = "-[MKPointAnnotation(JSONProperty) pinBasedOnTransfer:]:MKAnnotationView+JSONProperty.m">
+         <PersistentStrings>
+            <PersistentString
+               value = "[transfer objectForKey:@&quot;inter_modal&quot;] ">
+            </PersistentString>
+         </PersistentStrings>
+      </ContextState>
+      <ContextState
          contextName = "-[ViewController prepareForSegue:sender:]:ViewController.m">
          <PersistentStrings>
             <PersistentString

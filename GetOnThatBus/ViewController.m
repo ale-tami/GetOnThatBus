@@ -66,6 +66,7 @@
         pointAnnotation.subtitle = [NSString stringWithFormat:@"Routes: %@", [dict objectForKey: @"routes"]];
         pointAnnotation.coordinate = location;
         pointAnnotation.jsonAttribute = dict;
+        [pointAnnotation pinBasedOnTransfer:dict];
 
         [self.mapView addAnnotation:pointAnnotation];
 
@@ -88,6 +89,11 @@
         MKPinAnnotationView *pin = [[MKPinAnnotationView alloc]initWithAnnotation:annotation reuseIdentifier:nil];
         pin.canShowCallout = YES;
         pin.rightCalloutAccessoryView = [UIButton buttonWithType:UIButtonTypeDetailDisclosure];
+        
+        if (((MKPointAnnotation*)annotation).image) {
+            pin.image = ((MKPointAnnotation*)annotation).image;
+        }
+        
         
         return pin;
     } else {
