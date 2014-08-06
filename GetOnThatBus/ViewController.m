@@ -10,11 +10,12 @@
 #import "JSONManager.h"
 #import <MapKit/MapKit.h>
 
-@interface ViewController ()<JSONManagerDelegate, MKMapViewDelegate>
+@interface ViewController ()<JSONManagerDelegate, MKMapViewDelegate, UITableViewDataSource, UITableViewDelegate>
 
 @property (weak, nonatomic) IBOutlet MKMapView *mapView;
 @property JSONManager *jsonManager;
 @property CLLocationCoordinate2D chicagoCoordinates;
+@property (weak, nonatomic) IBOutlet UITableView *tableView;
 
 @property NSArray *stopsArray;
 
@@ -25,6 +26,8 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
+    
+    self.tableView.hidden = YES;
     
     self.jsonManager = [[JSONManager alloc] init];
     self.jsonManager.delegate = self;
@@ -72,13 +75,58 @@
 
 
     }
+    
+    [self.tableView reloadData];
 }
 
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
 {
-    MKAnnotationView *annotationView = sender;
-    [segue.destinationViewController setAnnotation:annotationView.annotation];
-    [segue.destinationViewController setTitle:annotationView.annotation.title];
+    if ([sender isKindOfClass:[UITableViewCell class]]) {
+        MKPointAnnotation *annotation = [[self.mapView annotations] objectAtIndex:[self.tableView indexPathForCell:sender].row];
+        [segue.destinationViewController setAnnotation:annotation];
+        [segue.destinationViewController setTitle:annotation.title];
+        
+    } else {
+        MKAnnotationView *annotationView = sender;
+        [segue.destinationViewController setAnnotation:annotationView.annotation];
+        [segue.destinationViewController setTitle:annotationView.annotation.title];
+    }
+    
+}
+
+- (IBAction)onTabPressed:(UISegmentedControl*)sender {
+    
+    if (sender.selectedSegmentIndex == 0) {
+        self.tableView.hidden = YES;
+        self.mapView.hidden = NO;
+    } else {
+        self.tableView.hidden = NO;
+        self.mapView.hidden = YES;
+    }
+    
+}
+
+
+- (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
+{
+    return self.stopsArray.count;
+}
+
+
+- (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"cellID"];
+    
+    cell.textLabel.text = ((MKPointAnnotation *)[[self.mapView annotations] objectAtIndex:indexPath.row]).title;
+    cell.detailTextLabel.text = ((MKPointAnnotation *)[[self.mapView annotations] objectAtIndex:indexPath.row]).subtitle;
+    
+    return cell;
+}
+
+- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    [self performSegueWithIdentifier:@"detailSegue" sender: [self.tableView cellForRowAtIndexPath:indexPath] ];
+
 }
 
 
